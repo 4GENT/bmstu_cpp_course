@@ -1,5 +1,4 @@
-#include <assert.h>
-#include "stdio.h"
+#include "int2str.h"
 #include <limits.h>
 
 char* int2str(int num) {
@@ -36,8 +35,4 @@ char* int2str(int num) {
     }
 
     return &str[i + 1];
-}
-int main(void){
-    printf("%s\n", int2str(2147483649));
-    return 0;
 }
