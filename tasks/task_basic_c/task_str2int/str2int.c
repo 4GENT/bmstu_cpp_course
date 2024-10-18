@@ -1,4 +1,5 @@
 #include <assert.h>
+<<<<<<< HEAD
 #include <stdio.h>
 
 const int max = 2147483647;
@@ -46,4 +47,11 @@ int str2int(const char *str) {
     }
 
     return sign * result;
+=======
+#include "str2int.h"
+#include "stdio.h"
+
+int str2int(const char *str) {
+    return 0;
+>>>>>>> main
 }
