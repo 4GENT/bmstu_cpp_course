@@ -1,8 +1,9 @@
 #include "int2str.h"
 #include <limits.h>
+#include <stdlib.h>
 
 char* int2str(int num) {
-    static char str[12];
+    char* str = (char*)malloc(12 * sizeof(char));
     int i = 10;
     int isNegative = 0;
 
