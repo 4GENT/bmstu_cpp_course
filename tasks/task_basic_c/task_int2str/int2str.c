@@ -1,37 +1,24 @@
 #include "int2str.h"
-#include <limits.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 char* int2str(int num) {
-    char* str = (char*)malloc(12 * sizeof(char));
+    char* str = malloc(12 * sizeof(char));
     int i = 10;
-    int isNegative = 0;
-
+    unsigned int abs_num = (num < 0) ? -num : num;
     str[11] = '\0';
 
     if (num == 0) {
-        str[i] = '0';
-        return &str[i];
-    }
-
-    if (num < 0) {
-        isNegative = 1;
-        if (num == INT_MIN) {
-            num = -(num + 1);
-            str[i--] = (num % 10) + 1 + '0';
-            num /= 10;
-        } else {
-            num = -num;
+        str[i--] = '0';
+    } else {
+        while (abs_num > 0) {
+            str[i--] = (abs_num % 10) + '0';
+            abs_num /= 10;
         }
-    }
 
-    while (num > 0 && i >= 0) {
-        str[i--] = (num % 10) + '0';
-        num /= 10;
-    }
-
-    if (isNegative && i >= 0) {
-        str[i--] = '-';
+        if (num < 0) {
+            str[i--] = '-';
+        }
     }
 
     return &str[i + 1];
